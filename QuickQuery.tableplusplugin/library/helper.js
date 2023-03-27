@@ -354,9 +354,9 @@ var parseQuickQuery = function(context, quickQuery, schemaData) {
   let groupBySql = '';
   let selectFields = '*';
   if (queryParts.groupBys) {
-    const groupByFields = queryParts.groupBys.split(separator);
+    const groupByFields = queryParts.groupBys.split(separator).map(field => `${tableAbbrev}.${field}`);
     groupBySql = `group by ${groupByFields.join(', ')}`
-    selectFields = [groupByFields, 'count(1) as ct'].join(', ');
+    selectFields = [...groupByFields, 'count(1) as ct'].join(', ');
   }
   const selectSql = `select ${selectFields}`;
   const fromSql = `from ${tableName} ${tableAbbrev}`;
