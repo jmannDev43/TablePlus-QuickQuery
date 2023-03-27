@@ -1,0 +1,30 @@
+{
+    "name": "Quick Query Plugin",
+    "identifier": "com.mann.QuickQuery",
+    "version": "1.0",
+    "detail": "This plugin enables querying using an abbreviated syntax",
+    "author": "Josh Mann",
+    "site": "https://github.com/jmannDev43/TablePlus-QuickQuery",
+    "authorEmail": "jmann5443@gmail.com",
+    "scripts": [
+        {
+            "location": "main",
+            "type": "action",
+            "shortcut": "control+x",
+            "script": "quickQuery.js",
+            "name": "Quick Query"
+        },
+        {
+            "location": "item",
+            "type": "separator"
+        },
+        {
+            "location": "main",
+            "type": "action",
+            "shortcut": "control+e",
+            "handler": "printSchema",
+            "script": "quickQuery.js",
+            "name": "Print Schema"
+        }
+    ]
+}
